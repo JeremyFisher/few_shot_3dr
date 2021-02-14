@@ -1,0 +1,16 @@
+base train
+
+python train.py --label_type vox --epochs 3 --basedir '/home/jer/all_data_temp' --path_to_res '/home/jer/results_temp/few_shot_base' --cat_id 04401088 --batchsize 128 --k_shot 0 --drop 100 --lr 1e-4 --gpu 0 --film_type all --dec_3d_channels 1
+
+base test
+
+python test.py --label_type vox --basedir '/home/jer/all_data_temp' --path_to_res '/home/jer/results_temp/few_shot_base/'  --cat_id 04401088 --file /home/jer/results_temp/few_shot_base/04401088/0/few_shot_base_vox_04401088_bs_128_kshot_0_lr_0.0001_drop_100_channels_1_film_all_3.pth.tar   --batchsize 128 --k_shot full --no_save True --gpu 0 --rand_mode False --film_type all --dec_3d_channels 1
+
+
+
+novel train
+python train.py --label_type vox --epochs 3 --basedir '/home/jer/all_data_temp' --path_to_res '/home/jer/results_temp/few_shot_novel' --file '/home/jer/results_temp/few_shot_base/04401088/0/few_shot_base_vox_04401088_bs_128_kshot_0_lr_0.0001_drop_100_channels_1_film_all_3.pth.tar' --cat_id 03467517 --batchsize 4 --k_shot 25 --lr 1e-3 --drop 100 --gamma 0.1 --gpu 1 --freeze all_5d --embed_init rand --decay 0 --optim SGD --epoch_drop 100  --film_type all --dec_3d_channels 1 --k_shot_ver False
+
+
+novel test
+ python test.py --label_type vox --basedir '/home/jer/all_data_temp' --path_to_res '/home/jer/results_temp/few_shot_novel/' --cat_id 03467517 --file /home/jer/results_temp/few_shot_novel/03467517/25/few_shot_novel_vox_03467517_optim_SGD_bs_4_kshot_25_lr_0.001_drop_100_edrop_100_gamma_0.1_decay_0_freeze_all_5d_embInit_rand_channels_1_film_all_v_False_3.pth.tar  --batchsize 128 --k_shot 1 --no_save True --gpu 0 --film_type all
