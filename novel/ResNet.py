@@ -1,3 +1,10 @@
+'''
+This code is based on the Matryoshka [1] repository [2] and was modified accordingly:
+    [1] https://arxiv.org/abs/1804.10975
+    [2] https://bitbucket.org/visinf/projects-2018-matryoshka/src/master/
+    
+    Copyright (c) 2018, Visual Inference Lab @TU Darmstadt
+'''
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
