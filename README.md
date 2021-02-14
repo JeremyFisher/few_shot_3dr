@@ -20,6 +20,11 @@ finetuned on novel categories (see novel folder).
 
 See also howto.txt (modify paths so that they point to the right dirs).
 
+We have provided an improvement of the MCCE method where conditional batch norm is applied
+in both encoder and decoder. If you want to use it in your network, simply replace all your batchnorm
+layers with the layer defined in mcce.py. Note that you should finetune only `self.embed` 
+during finetuning of novel classes.
+
 -------------------------
 References
 ---------------------------
